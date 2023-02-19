@@ -14,7 +14,7 @@ document.write(`
                         </a>
                     </li>
                 </ul>
-                <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website <script>document.write(new Date().getFullYear());</script></div>
+                <div class="small text-center text-muted fst-italic">Copyright &copy; Devops Doses <script>document.write(new Date().getFullYear());</script></div>
             </div>
         </div>
     </div>
@@ -22,5 +22,5 @@ document.write(`
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
-<script src="js/scripts.js"></script>
+<script src="../js/scripts.js"></script>
 `);

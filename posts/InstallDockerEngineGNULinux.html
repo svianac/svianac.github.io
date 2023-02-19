@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="../incPosts/meta.js"></script>
+    </head>
+    <body>
+        <script src="../incPosts/header.js"></script>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    <h2 class="section-heading">Install Docker Engine in GNU/Linux</h2>
+                    <!-- Divider-->
+                    <img src="../img/docker-logo.png" alt="Logo Docker" class="center" >
+                    <hr class="my-4" />
+                    <div class="toc">
+                        <p>Table of contents</p>
+                            <ol>
+                                <li><a rel="noopener" href="#Introduction">Introduction</a></li>
+                                <li><a rel="noopener" href="#Installation">Installation</a></li>
+                                <li><a rel="noopener" href="#KeyConcepts">Key Concepts</a></li>
+                            </ol>
+                        </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <h2 id="Introduction">Introduction</h2>
+                    <p>In this post, we are going to go trough the process to install <strong>Docker Engine </strong>in our system. That will allows us to run containers and later on use it with <a rel="noreferrer noopener" href="https://docs.docker.com/compose/" data-type="URL" data-id="https://docs.docker.com/compose/" target="_blank">Docker Compose</a> or <a rel="noreferrer noopener" href="https://kubernetes.io/" data-type="URL" data-id="https://kubernetes.io/" target="_blank">Kubernetes</a>.  There are other tools designed to run containers, but <a rel="noreferrer noopener" href="https://www.docker.com/" target="_blank">Docker</a> is the most popular. To have this software installed in our workstation, will give us the benefit to run our own infrastructure with certain isolation. </p>
+                    <p>In my opinion, it is very good choice if you are developer or system administrator. You can prepare all you need without need of Virtual Machines or other software such us <a rel="noreferrer noopener" href="https://www.virtualbox.org/" target="_blank">Virtual Box</a> or <a rel="noreferrer noopener" href="https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html" target="_blank">VMware Workstation</a>. It will also help to keep the <strong>performance</strong> of your computer <strong>efficiently</strong>. </p>
+                    <p>At the end, we will also share some <strong>key concepts</strong> of this technology. This key concepts will be basic to understand technologies that can use Docker underneath, as we mentioned already: Docker Compose, Kubernetes or<a href="https://docs.docker.com/engine/swarm/" data-type="URL" data-id="https://docs.docker.com/engine/swarm/" target="_blank" rel="noreferrer noopener"> Docker Swarm</a>. </p>
+                    <hr class="my-4" />
+                    <h2 id="Installation">Installation</h2>
+                    <p>I support the idea that if you want to install any kind of software, you should always check the official documentation. You can apply this approach for any piece of software or package. <strong>Always check official documentation </strong>as source of truth.  </p>
+                    <p>Why? Because you may find thousands of blogs or articles of how to install Docker or X software, but, will they be updated if we compare it to official documentation? I don't think so.  </p>
+                    <p>Even in this entry of this blog, I will share some commands and after some months and with new releases of Docker, I won't be sure if exactly same commands applies. </p>
+                    <p>So as I said, we should check <a rel="noreferrer noopener" href="https://docs.docker.com/engine/install/" target="_blank">Install Docker Engine</a> documentation and follow it at our convenience. In my case, I want to install it for my GNU/Linux distribution based in<strong> Linux Mint</strong>. Then, this is the page I am looking for: <a rel="noreferrer noopener" href="https://docs.docker.com/engine/install/ubuntu/" target="_blank">Install Docker Engine on Ubuntu </a> (yes, there's no Linux Mint, so we select Ubuntu). I will go with the option <strong><a rel="noreferrer noopener" href="https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository" data-type="URL" data-id="https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository" target="_blank">Install using the repository</a></strong>.</p>
+                    <h4>Set up the repository</h4>
+                    <p>We start by installing some dependencies. </p>
+                    <customCode>    
+                            $ sudo apt-get update <br>
+                            $ sudo apt-get install
+                                ca-certificates
+                                curl
+                                gnupg
+                                lsb-release
+                    </customCode>
+                    <p>Adding the GPG key.</p>
+                    <customCode>    
+                        $ sudo mkdir -p /etc/apt/keyrings <br>
+                        $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+                </customCode>
+                <p>And finally, adding the repository: (<b>WAIT</b> before shooting the command)</p>
+                 <customCode>    
+                    $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+                 </customCode>
+                 <p><b>Warning</b>: Let’s first understand the command. We are printing the architecture and later on the name of the release. Let’s see what we get:</p>
+                 <img src="../img/Linux-Docker-Architecture-and-release.png" alt="Architecture AMD64 and release UMA" >
+                <p>And now, let’s remind what official documentation says:</p>
+                <blockquote class="blockquote"><p><strong>OS requirements<a href="https://docs.docker.com/engine/install/ubuntu/#os-requirements"></a></strong></p>
+                    <p>To install Docker Engine, you need the 64-bit version of one of these Ubuntu versions:</p>
+                    <p>Ubuntu Jammy 22.04 (LTS)<br>
+                    Ubuntu Impish 21.10<br>
+                    Ubuntu Focal 20.04 (LTS)<br>
+                    Ubuntu Bionic 18.04 (LTS)</p>
+                    <p>Docker Engine is supported on&nbsp;<code>x86_64</code>&nbsp;(or&nbsp;<code>amd64</code>),&nbsp;<code>armhf</code>,&nbsp;<code>arm64</code>, and&nbsp;<code>s390x</code>&nbsp;architectures.</p>
+                    <cite>https://docs.docker.com/engine/install/ubuntu/#os-requirements</cite></blockquote>
+                    <p>We can see that our architecture is supported  (amd64) but not our release (uma). As a matter of fact, if we browser this address:  <a rel="noreferrer noopener" href="https://download.docker.com/linux/ubuntu/dists/" target="_blank">https://download.docker.com/linux/ubuntu/dists/</a> you will not find uma anywhere. If your release appears, feel free to shoot the original command.</p>
+                    <p>Then, you will need to think what version you want to install. If you want to go for the latest, you may use <strong>jammy</strong> (from Ubuntu Jammy 22.04 (LTS) . So the command will be like this:</p>
+                    <customCode>    
+                        $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com linux/ubuntu jammy stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+                    </customCode>
+                    <h4>Install Docker Engine</h4>
+                    <p>Once we added successfully the repository, we can finally install Docker.</p>
+                    <customCode>    
+                        $ sudo apt-get update <br>
+                        $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+                    </customCode>
+                    <p>And now, we are ready to test if installation went fine:</p>
+                    <customCode>$ docker --version</customCode>
+                    <img src="../img/docker-version-command-output.png" alt="We got version 20.10.17" >
+                    <p>And let’s run a quick Hello World container.</p>
+                    <customCode>$ sudo docker run hello-world</customCode>
+                    <img src="../img/docker-run-hello-world.png" alt="Output of running Hello-World container">
+                    <p>If you want to <strong>run</strong> Docker as <strong>non-sudo user</strong>, check this out: <a rel="noreferrer noopener" href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user" target="_blank">Manage Docker as a non-root user</a></p>
+                    <hr class="my-4" />
+                    <h2 id="KeyConcepts">Key Concepts</h2>
+                    <p>Now that you have Docker Engine, what are <strong>next steps</strong>?</p>
+                    <p>I encourage you to take some <strong>training</strong> to understand the potential of this technology. I recommend this Udemy course: <a rel="noreferrer noopener" href="http://Docker Mastery: with Kubernetes +Swarm from a Docker Captain" target="_blank">Docker Mastery: with Kubernetes +Swarm from a Docker Captain</a>. It will be very useful to learn about Docker and get a solid base. </p>
+                    <p>You need to be aware that you are running containers and they are <strong>stateless</strong> by default. It means that if you do any change inside the container, once it is terminated, all the <strong>changes will be gone</strong>. </p>
+                    <p>However, you can use <strong>volumes</strong> in order to <strong>persist data</strong>: <a rel="noreferrer noopener" href="https://docs.docker.com/storage/volumes/" target="_blank">Use volumes</a></p>
+                    <p>Finally, once you get this solid knowledge about how Docker works, I recommend to use <strong>Docker-Compose</strong>, as it will boost your confidence managing containers and you will get better results. Also, you will be able to create more complicated solutions easily.</p>
+                    <p>Cheers! </p>
+                </div>
+            </div>
+        </div>
+        <script src="../incPosts/footer.js"></script>
+    </body>
+</html>
