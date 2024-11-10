@@ -707,6 +707,11 @@ section,
 .hero .container {
   position: relative;
   z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
 }
 
 .hero h2 {
@@ -1473,4 +1478,30 @@ section,
 
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.container-vertical {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center;
+  justify-content: center;
+}
+
+.container-vertical h2, 
+.container-vertical p, 
+.container-vertical .social-links {
+  margin: 0;
+  padding: 0;
+}
+
+.container-vertical h2 {
+  margin-bottom: 10px; /* Space between h2 and p */
+}
+
+.container-vertical p {
+  margin-bottom: 10px; /* Space between p and social links */
+}
+
+.container-vertical .social-links {
+  margin-top: 10px; /* Optional: Extra space above social links */
 }
