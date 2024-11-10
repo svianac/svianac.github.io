@@ -1,26 +1,24 @@
 document.write(`
-<!-- Footer-->
-<footer class="border-top">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <ul class="list-inline text-center">
-                    <li class="list-inline-item">
-                        <a href="https://github.com/svianac">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-                <div class="small text-center text-muted fst-italic">Copyright &copy; Devops Doses <script>document.write(new Date().getFullYear());</script></div>
-            </div>
+   <div class="container">
+      <h3 class="sitename">Weronika Seri Tattoo</h3>
+      <p>Od 2019 roku przenoszę piękno natury i magii na skórę, tworząc tatuaże pełne detali i emocji. Każdy projekt to wyjątkowa historia, którą opowiadamy razem.</p>
+      <div class="social-links d-flex justify-content-center">
+        <!-- <a href=""><i class="bi bi-facebook"></i></a> -->
+        <a href="https://www.instagram.com/blairvitch/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.tiktok.com/@.blairvitch?_t=8rHNoEHNdiw&_r=1" target="_blank"><i class="bi bi-tiktok"></i></a>
+        <!-- <a href="#"><i class="bi bi-tiktok"></i></a> -->
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Weronika Seri</strong> <span>All Rights Reserved</span>
         </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you've purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
     </div>
-</footer>
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
 `);
