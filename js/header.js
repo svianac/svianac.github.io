@@ -1,34 +1,21 @@
 document.write(`
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-<!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="index.html">Devops Doses</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="content.html">Content</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!-- Page Header-->
-<header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
-    <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <div class="site-heading">
-                    <h1>Devops Doses</h1>
-                    <span class="subheading">Just another site to spread knowledge</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo1.png" alt="">
+        <h1 class="sitename">Weronika Seri Tattoo</h1>
+      </a>
 
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Strona główna</a></li>
+          <li><a href="about.html">O mnie</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
 `);
