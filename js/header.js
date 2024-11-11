@@ -11,7 +11,7 @@ document.write(`
         <ul>
           <li><a href="index.html">Strona główna</a></li>
           <li><a href="about.html">O mnie</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="portfolio-tatuaze.html">Portfolio</a></li>
           <li><a href="contact.html">Kontakt</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
