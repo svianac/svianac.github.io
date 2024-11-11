@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+   <head>
+      <meta charset="UTF-8">
+      <script src="js/meta.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <style>
+         /* Hide items initially based on filter */
+         .portfolio-item { display: none; }
+         .portfolio-item.active { display: block; }
+      </style>
+   </head>
+   <body class="index-page">
+      <header id="header" class="header d-flex align-items-center fixed-top">
+         <script src="js/header.js"></script>
+      </header>
+      <main class="main">
+         <div class="page-title" data-aos="fade">
+            <div class="heading">
+               <div class="container">
+                  <div class="row d-flex justify-content-center text-center">
+                     <div class="col-lg-8">
+                        <h1>Portfolio</h1>
+                        <p class="mb-0">Zobacz moje tatuaże na social mediach i odkryj mój unikalny styl. Znajdziesz tam szeroką gamę projektów zainspirowanych naturą. Kliknij poniżej, aby przejść do mojego profilu i zobaczyć więcej!</p>
+                     </div>
+                     <div class="social-links">
+                        <a href="https://www.instagram.com/blairvitch/" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@.blairvitch?_t=8rHNoEHNdiw&_r=1" target="_blank"><i class="bi bi-tiktok"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <nav class="breadcrumbs">
+               <div class="container">
+                  <ol>
+                     <li><a href="index.html">Strona główna</a></li>
+                     <li class="current">Portfolio</li>
+                  </ol>
+               </div>
+            </nav>
+         </div>
+         <!-- Portfolio Section -->
+         <section id="portfolio" class="portfolio section">
+            <div class="container">
+               <ul class="portfolio-filters" data-aos="fade-up" data-aos-delay="100">
+                  <li><a class="always-white" href="portfolio-tatuaze.html">Tatuaże</a></li>
+                  <li><a class="always-white" href="portfolio-projekty.html">Projekty</a></li>
+                  <li><a href="portfolio-aagojone-tatuaze.html">Zagojone tatuaże</a></li>
+                  <li><a class="always-white" href="portfolio-printy.html">Printy</a></li>
+               </ul>
+               <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+                  <!-- Portfolio Items
+                  <div class="col-lg-4 col-md-6 portfolio-item filter-tatuaze active">
+                     <div class="portfolio-content h-100">
+                        <img data-src="assets/img/portfolio/projekty-1.jpg" src="assets/img/portfolio/projekty-1.jpg" class="img-fluid" alt="" loading="lazy">
+                        <div class="portfolio-info">
+                           <a href="assets/img/portfolio/projekty-1.jpg" data-gallery="portfolio-gallery-tatuaze" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                        </div>
+                     </div>
+                  </div> -->
+               </div>
+            </div>
+         </section>
+      </main>
+      <footer id="footer" class="footer dark-background">
+         <script src="js/footer.js"></script>
+      </footer>
+      <script src="js/submeta.js"></script>
+      <script>
+         // Lazy load observer for images
+         const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+         entries.forEach(entry => {
+             if (entry.isIntersecting) {
+                 const img = entry.target;
+                 img.src = img.dataset.src;  // Set src from data-src
+                 observer.unobserve(img);     // Stop observing once loaded
+             }
+         });
+         }, { rootMargin: "0px 0px 200px 0px" });
+         
+         // Observe each image with loading="lazy"
+         document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+         lazyLoadObserver.observe(img);
+         });
+      </script>
+   </body>
+</html>

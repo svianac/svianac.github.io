@@ -72,6 +72,10 @@ a {
   transition: 0.3s;
 }
 
+a.always-white {
+  color: white;
+}
+
 a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
   text-decoration: none;
